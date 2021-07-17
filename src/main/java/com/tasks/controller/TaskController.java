@@ -18,7 +18,7 @@ import com.tasks.service.TaskService;
 public class TaskController {
 	
 	@Autowired
-	TaskService srv;
+	TaskService taskService;
 
 	
 	/*
@@ -27,7 +27,7 @@ public class TaskController {
 	 *  ②タスク一覧を表示できる
 	 */
 	@GetMapping("/task/list") 
-	public String displayTaskList(Model model,TaskRequest taskRequest) {
+	public String displayTaskList(Model model, TaskRequest taskRequest) {
 		
 		//　DBからデータ探してくる List
 		
@@ -44,19 +44,19 @@ public class TaskController {
 	
 	/* タスクをデータベースへ登録するメソッド */
 	@PostMapping("/task/regist")
-	public String registOneTask(TaskRequest taskRequest,RedirectAttributes redirectAttributes) {
+	public String registOneTask(TaskRequest taskRequest, RedirectAttributes redirectAttributes) {
 		
 		//　エンティティ生成
 		TaskEntity oneTaskEntity = new TaskEntity();
 		
 		//　フォームからエンティティへ詰め替える taskRequest→registTaskEntity
 		//　task_name
-		oneTaskEntity.setTask_name(taskRequest.getTask_name());
+		oneTaskEntity.setTaskName(taskRequest.getTaskName());
 		//　complete_flag
-		oneTaskEntity.setComplete_flag(false);
+		oneTaskEntity.setCompleteFlag(false);
 		
 		//　サービスクラスへエンティティを渡しrepositorを使ってDBへ登録する
-		srv.regist(oneTaskEntity);
+		taskService.regist(oneTaskEntity);
 	
 		//　登録完了Msg
 		redirectAttributes.addFlashAttribute("completeMsg", "登録完了");

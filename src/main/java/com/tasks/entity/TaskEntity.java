@@ -15,73 +15,74 @@ public class TaskEntity {
 	
 	@Id
 	@Column(name = "task_id")		
-	@NotNull
-	private int task_id;
+	private int taskId;
 	
 	//　Util.Dateをインポートする
 	@Column(name= "task_date")
-	private Date task_date;
+	private Date taskDate;
 	
 	@Column(name = "task_name")
-	private String task_name;
+	private String taskName;
 	
 	//sql.Time
 	@Column(name ="task_time")
-	private Time task_time;
+	private Time taskTime;
 	
 	@Column(name = "task_place")
-	private String task_place;
+	private String taskPlace;
 	
 	@Column(name = "complete_flag")
-	private Boolean complete_flag;
+	private Boolean completeFlag;
 
-	public int getTask_id() {
-		return task_id;
+	public int getTaskId() {
+		return taskId;
 	}
 
-	public void setTask_id(int task_id) {
-		this.task_id = task_id;
+	public void setTaskId(int taskId) {
+		this.taskId = taskId;
 	}
 
-	public Date getTask_date() {
-		return task_date;
+	public Date getTaskDate() {
+		return taskDate;
 	}
 
-	public void setTask_date(Date task_date) {
-		this.task_date = task_date;
+	public void setTaskDate(Date taskDate) {
+		this.taskDate = taskDate;
 	}
 
-	public String getTask_name() {
-		return task_name;
+	public String getTaskName() {
+		return taskName;
 	}
 
-	public void setTask_name(String task_name) {
-		this.task_name = task_name;
+	public void setTaskName(String taskName) {
+		this.taskName = taskName;
 	}
 
-	public Time getTask_time() {
-		return task_time;
+	public Time getTaskTime() {
+		return taskTime;
 	}
 
-	public void setTask_time(Time task_time) {
-		this.task_time = task_time;
+	public void setTaskTime(Time taskTime) {
+		this.taskTime = taskTime;
 	}
 
-	public String getTask_place() {
-		return task_place;
+	public String getTaskPlace() {
+		return taskPlace;
 	}
 
-	public void setTask_place(String task_place) {
-		this.task_place = task_place;
+	public void setTaskPlace(String taskPlace) {
+		this.taskPlace = taskPlace;
 	}
 
-	public Boolean getComplete_flag() {
-		return complete_flag;
+	public Boolean getCompleteFlag() {
+		return completeFlag;
 	}
 
-	public void setComplete_flag(Boolean complete_flag) {
-		this.complete_flag = complete_flag;
+	public void setCompleteFlag(Boolean completeFlag) {
+		this.completeFlag = completeFlag;
 	}
+
+
 	
 	
 	

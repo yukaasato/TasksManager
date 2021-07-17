@@ -14,85 +14,87 @@ public class TaskRequest {
 	@Id
 	@Column(name = "task_id")
 	@NotNull
-	private int task_id;
+	private int taskId;
 	
 	@Column(name = "task_date")
-	private String task_date;
+	private String taskDate;
 	
 	@NotNull
 	@Size(min = 1, max = 60, message = "¦ƒ^ƒCƒgƒ‹‚ª–¢“ü—Í‚Å‚·")
 	@Column(name = "task_name")
-	private String task_name;
+	private String taskName;
 	
 	@Column(name = "task_time") 
-	private String task_time;
+	private String taskTime;
 	
 	@Column(name = "task_place")
-	private String task_place;
+	private String taskPlace;
 	
 	
 	@Column(name = "complete_flag")
-	private int complete_flag;
+	private int completeFlag;
 
 
-	public int getTask_id() {
-		return task_id;
+	public int getTaskId() {
+		return taskId;
 	}
 
 
-	public void setTask_id(int task_id) {
-		this.task_id = task_id;
+	public void setTaskId(int taskId) {
+		this.taskId = taskId;
 	}
 
 
-	public String getTask_date() {
-		return task_date;
+	public String getTaskDate() {
+		return taskDate;
 	}
 
 
-	public void setTask_date(String task_date) {
-		this.task_date = task_date;
+	public void setTaskDate(String taskDate) {
+		this.taskDate = taskDate;
 	}
 
 
-	public String getTask_name() {
-		return task_name;
+	public String getTaskName() {
+		return taskName;
 	}
 
 
-	public void setTask_name(String task_name) {
-		this.task_name = task_name;
+	public void setTaskName(String taskName) {
+		this.taskName = taskName;
 	}
 
 
-	public String getTask_time() {
-		return task_time;
+	public String getTaskTime() {
+		return taskTime;
 	}
 
 
-	public void setTask_time(String task_time) {
-		this.task_time = task_time;
+	public void setTaskTime(String taskTime) {
+		this.taskTime = taskTime;
 	}
 
 
-	public String getTask_place() {
-		return task_place;
+	public String getTaskPlace() {
+		return taskPlace;
 	}
 
 
-	public void setTask_place(String task_place) {
-		this.task_place = task_place;
+	public void setTaskPlace(String taskPlace) {
+		this.taskPlace = taskPlace;
 	}
 
 
-	public int getComplete_flag() {
-		return complete_flag;
+	public int getCompleteFlag() {
+		return completeFlag;
 	}
 
 
-	public void setComplete_flag(int complete_flag) {
-		this.complete_flag = complete_flag;
+	public void setCompleteFlag(int completeFlag) {
+		this.completeFlag = completeFlag;
 	}
+
 	
 
+	
 }

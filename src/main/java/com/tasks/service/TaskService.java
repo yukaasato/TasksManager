@@ -13,10 +13,10 @@ import com.tasks.repository.TaskRepository;
 public class TaskService {
 	
 	@Autowired
-	TaskRepository repo;
+	TaskRepository taskRepository;
 
 	public void regist(TaskEntity oneTaskEntity) {
-		repo.save(oneTaskEntity);
+		taskRepository.save(oneTaskEntity);
 	}
 
 }
