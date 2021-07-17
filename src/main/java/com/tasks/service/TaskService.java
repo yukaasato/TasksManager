@@ -1,5 +1,7 @@
 package com.tasks.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,4 +21,8 @@ public class TaskService {
 		taskRepository.save(oneTaskEntity);
 	}
 
+	public List<TaskEntity> getTaskList(){
+		
+		return taskRepository.findAll();
+	}
 }

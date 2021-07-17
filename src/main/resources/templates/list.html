@@ -5,22 +5,35 @@
 <title th:text="${title}"></title>
 </head>
 <body>
+
 	<header>	
 		<h1 th:text="${title}"></h1>
 		<h1 th:text="${completeMsg}"></h1>
-		
 	</header>
 	
 	<!-- タスク追加ボタンーー-->
 	<div>
 		<form method="post" th:action="@{/task/regist}"th:object="${taskRequest}"><!-- taskRequestオブジェクトへ格納してJava側へ渡すーー-->
 			<label>Task追加</label>
-			<input type="text" name="task_name" th:value="*{task_name}"><!--テキスト部分 taskFromオブジェクトのtodo_titleフィールドに格納してJavaへ渡すーー-->
+			<input type="text" name="taskName" th:value="*{taskName}"><!--テキスト部分 taskRequestオブジェクトのtaskNameフィールドに格納してJavaへ渡すーー-->
 			<input type="submit" value="登録"><!-- 追加ボダンーー-->
-			<!--バリデーション  <div th:if="${#fields.hasErrors('task_name')}"th:errors="*{task_name}" style="color: gray"></div>--><!-- 未入力だったら再入力を促すーー-->
+			<!--バリデーション  <div th:if="${#fields.hasErrors('taskName')}"th:errors="*{taskName}" style="color: gray"></div>--><!-- 未入力だったら再入力を促すーー-->
 		</form>
 	</div>
-	<!-- タイトル追加ボタン終ーー-->	
+	<!-- タスク追加ボタン終ーー-->	
+	
+	<!-- taskaListーー-->
+	<table class="table">				
+		<!-- 繰り返すオブジェクト -->
+		<th:block th:each="list : ${taskList}" th:object="${list}"><!-- ${taskList}がJavaから受け取る変数名、th:each="変数名,ステータス変数名 : 繰り返す要素 ーー-->
+			<!-- taskのデータ一つずつ -->
+			<tr>
+				<td th:text="*{taskName}"></td>
+			</tr><!-- 行終 -->
+
+		</th:block><!--繰り返すオブジェクト終ーー-->
+	</table><!-- taskList終ーー-->
+	
 
 </body>
 </html>
