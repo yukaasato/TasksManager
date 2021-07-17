@@ -34,10 +34,7 @@ public class TaskController {
 		
 		//　DBからデータ探してくる List
 		//　配列を生成して、List型のTaskEntityリストを作成する。変数名：taskList
-		List<TaskEntity> taskList = new ArrayList<>();//ジェネリクス　型を自動変換してくれる、ここでいうとtaskEntity　
-		
-		//　taskServiceでfindAll();でListを
-		taskList = taskService.getTaskList();
+		List<TaskEntity> taskList = taskService.getTaskList();
 		
 		//　htmlへtitleを受け渡す
 		model.addAttribute("title", "Task一覧");
