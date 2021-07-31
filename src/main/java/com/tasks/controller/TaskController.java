@@ -1,5 +1,8 @@
 package com.tasks.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,12 +33,16 @@ public class TaskController {
 	public String displayTaskList(Model model, TaskRequest taskRequest) {
 		
 		//　DBからデータ探してくる List
+		//　配列を生成して、List型のTaskEntityリストを作成する。変数名：taskList
+		List<TaskEntity> taskList = taskService.getTaskList();
 		
+		//　htmlへtitleを受け渡す
+		model.addAttribute("title", "Task一覧");
 		
-		//　Titleに追加
-		model.addAttribute("taskList", "Task一覧");
+		//　htmlへtaskListを受け渡す
+		model.addAttribute("taskList",taskList);
 		
-		//　taskRequestのインスタンスをthymleaf側へ受け渡す
+		//　htmlへtaskRequestを受け渡す
 		model.addAttribute("taskRequest", taskRequest);
 		
 		//　list.htmlを返す
@@ -50,9 +57,9 @@ public class TaskController {
 		TaskEntity oneTaskEntity = new TaskEntity();
 		
 		//　フォームからエンティティへ詰め替える taskRequest→registTaskEntity
-		//　task_name
+		//　taskName
 		oneTaskEntity.setTaskName(taskRequest.getTaskName());
-		//　complete_flag
+		//　completeFlag
 		oneTaskEntity.setCompleteFlag(false);
 		
 		//　サービスクラスへエンティティを渡しrepositorを使ってDBへ登録する
