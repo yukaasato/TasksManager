@@ -29,6 +29,15 @@
 			<!-- taskのデータ一つずつ -->
 			<tr>
 				<td th:text="*{taskName}"></td>
+				
+				<td th:text="*{taskId}"></td>
+				<td>
+					<!-- 詳細ボタン -->
+					<form method="get" th:action="@{/task/detail}">
+						<input type="hidden" name="{taskId}" th:value="*{taskId}"><!--idをformに持たせておく、javaのほうで条件絞り込みに必要 -->
+						<input type="submit" value ="詳細"><!--valueとclassはAwsome -->
+					</form> 
+				</td>
 			</tr><!-- 行終 -->
 
 		</th:block><!--繰り返すオブジェクト終ーー-->

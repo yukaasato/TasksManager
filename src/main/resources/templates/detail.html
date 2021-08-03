@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">Insert title here</title>
+<link th:href="@{/css/list.css}" rel="stylesheet" type="text/css">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+</head>
+<body>
+	<header></header>
+	<section>
+		<div >	
+			<form method="post" th:action="@{/task/list}" th:object="${oneTask}">	
+				<table>
+					<tr>
+						<td><input name="" type="text" th:value="*{taskTitle}"></td>
+					</tr>
+				</table>	
+			</form>
+	</section>
+	<footer></footer>	
+
+</body>
+</html>
