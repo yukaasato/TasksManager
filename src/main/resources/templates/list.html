@@ -17,24 +17,25 @@
 			<label>Task追加</label>
 			<input type="text" name="taskName" th:value="*{taskName}"><!--テキスト部分 taskRequestオブジェクトのtaskNameフィールドに格納してJavaへ渡すーー-->
 			<input type="submit" value="登録"><!-- 追加ボダンーー-->
-			<!--バリデーション  <div th:if="${#fields.hasErrors('taskName')}"th:errors="*{taskName}" style="color: gray"></div>--><!-- 未入力だったら再入力を促すーー-->
 		</form>
 	</div>
 	<!-- タスク追加ボタン終ーー-->	
 	
 	<!-- taskaListーー-->
-	<table class="table">				
+	<table border="1">				
 		<!-- 繰り返すオブジェクト -->
+		<tr><td>Task名</td><td>日付</td><td>時間</td><td>場所</td></tr>
 		<th:block th:each="list : ${taskList}" th:object="${list}"><!-- ${taskList}がJavaから受け取る変数名、th:each="変数名,ステータス変数名 : 繰り返す要素 ーー-->
 			<!-- taskのデータ一つずつ -->
 			<tr>
-				<td th:text="*{taskName}"></td>
-				
-				<td th:text="*{taskId}"></td>
+				<td th:text="*{taskName}"></td>	
+				<td th:text="${#dates.format(list.taskDate,'yyyy-MM-dd')}"></td>
+				<td class="data"th:text="${#dates.format(list.taskTime,'hh:mm')}"></td><!-- ユーティリティメソッド、"${#dates.format(値,'hh:mm')}"> -->
+        		<td class="data" th:text="*{taskPlace}"></td>
 				<td>
 					<!-- 詳細ボタン -->
 					<form method="get" th:action="@{/task/detail}">
-						<input type="hidden" name="{taskId}" th:value="*{taskId}"><!--idをformに持たせておく、javaのほうで条件絞り込みに必要 -->
+						<input type="hidden" name="taskId" th:value="*{taskId}"><!--idをformに持たせておく、javaのほうで条件絞り込みに必要 -->
 						<input type="submit" value ="詳細"><!--valueとclassはAwsome -->
 					</form> 
 				</td>

@@ -9,17 +9,21 @@
 
 </head>
 <body>
-	<header></header>
-	<section>
-		<div >	
-			<form method="post" th:action="@{/task/list}" th:object="${oneTask}">	
+	<header><h1 th:text="${myTasks}"></h1></header>
+			<form method="post" th:action="@{/task/update}" th:object="${oneTask}">	
 				<table>
-					<tr>
-						<td><input name="" type="text" th:value="*{taskTitle}"></td>
-					</tr>
+				　　　<tr><td>タスク名</td></tr>
+					<tr><td><input name="taskName" type="text" th:value="*{taskName}"></td></tr>
+					<tr><td>日付</td></tr>
+					<tr><td><input name="taskDate" type="date" th:value="${#dates.format(oneTask.taskDate,'yyyy-MM-dd')}"></td></tr>	
+					<tr><td>時間</td></tr>
+					<tr><td><input name="taskTime" type="time" th:value="*{taskTime}"></td></tr>	
+					<tr><td>場所</td></tr>
+					<tr><td><input name="taskPlace" type="text" th:value="*{taskPlace}" ></td></tr>
 				</table>	
+				<input type="submit" value="保存">
+				<input type="hidden" name="taskId" th:value="*{taskId}">	
 			</form>
-	</section>
 	<footer></footer>	
 
 </body>

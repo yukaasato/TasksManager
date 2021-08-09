@@ -1,7 +1,7 @@
 package com.tasks.service;
 
+import java.util.Iterator;
 import java.util.List;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -29,11 +29,16 @@ public class TaskService {
 		return taskRepository.findAll();
 	}
 	
-	//task‚Ì1Œæ“¾
+	/*
+	 * //task‚Ì1Œæ“¾ public TaskEntity getTaskEntity(int id) {
+	 * 
+	 * 
+	 * return taskRepository.getByID(id); }
+	 */	
 	public TaskEntity getTaskEntity(int id) {
 		
-		TaskEntity taskEntity = taskRepository.findById(id);
-		return taskEntity;
-	}		
+		
+		return taskRepository.findByTaskId(id);
+	}	
 	
 }
