@@ -86,16 +86,15 @@ public class TaskController {
 
 		//エンティティのインスタンスを生成する
 		//用途はデータベースから取得する1件のデータを格納する事
-		TaskEntity detailEntity =new TaskEntity ();
+		TaskEntity detailEntity = new TaskEntity ();
 
 		//taskRequestからdetailEntityへセットする
 		//ユーザが見たい詳細データを絞り込むため
 		detailEntity.setTaskId(taskRequest.getTaskId());
 
-		System.out.println(taskRequest.getTaskId());
-		//TaskEntity  oneTask = taskService.getTaskEntity(detailEntity.getTaskId());
 
 		TaskEntity oneTask = taskService.getTaskEntity(detailEntity.getTaskId());
+
 		//タイトル
 		model.addAttribute("myTasks","My Tasks");
 
