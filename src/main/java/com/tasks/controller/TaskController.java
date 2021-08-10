@@ -93,13 +93,11 @@ public class TaskController {
 		detailEntity.setTaskId(taskRequest.getTaskId());
 
 
-		TaskEntity oneTask = taskService.getTaskEntity(detailEntity.getTaskId());
-
 		//ƒ^ƒCƒgƒ‹
 		model.addAttribute("myTasks","My Tasks");
 
 		//Entity‚ğ“n‚·
-		model.addAttribute("oneTask", oneTask);
+		model.addAttribute("oneTask", detailEntity);
 
 		//Ú×‰æ–Ê‚Ö
 		return "/detail";
