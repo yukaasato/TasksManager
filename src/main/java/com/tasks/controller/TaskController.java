@@ -121,7 +121,6 @@ public class TaskController {
 		updateEntity.setTaskName(taskRequest.getTaskName());
 		updateEntity.setTaskPlace(taskRequest.getTaskPlace());		
 		updateEntity.setCompleteFlag(taskRequest.isCompleteFlag());	
-		
 		if(taskRequest.getTaskDate() != null && taskRequest.getTaskDate().length() == 10 ){
 			updateEntity.setTaskDate(Date.valueOf(taskRequest.getTaskDate()));
 		}

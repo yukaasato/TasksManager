@@ -1,6 +1,5 @@
 package com.tasks.service;
 
-import java.util.Iterator;
 import java.util.List;
 
 import javax.transaction.Transactional;
