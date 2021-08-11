@@ -32,7 +32,7 @@ public class TaskRequest {
 	
 	
 	@Column(name = "complete_flag")
-	private int completeFlag;
+	private boolean completeFlag;
 
 
 	public int getTaskId() {
@@ -85,16 +85,13 @@ public class TaskRequest {
 	}
 
 
-	public int getCompleteFlag() {
+	public boolean isCompleteFlag() {
 		return completeFlag;
 	}
 
 
-	public void setCompleteFlag(int completeFlag) {
+	public void setCompleteFlag(boolean completeFlag) {
 		this.completeFlag = completeFlag;
 	}
-
-	
-
 	
 }
