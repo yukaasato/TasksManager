@@ -11,7 +11,7 @@ public interface TaskRepository extends JpaRepository<TaskEntity, Integer>{
 				+ "FROM "
 				+ "TaskEntity taskEntity "
 				+ "WHERE "
-				+ "taskEntity.taskId = :taskIdgit ")					
+				+ "taskEntity.taskId = :taskId")					
 	public TaskEntity findByTaskId(@Param("taskId") int taskId);
 	
 }
