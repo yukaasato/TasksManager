@@ -154,20 +154,8 @@ public class TaskController {
 	@PostMapping("/task/delete")
 	public String taskDelete(TaskRequest taskRequest, Model model) {
 		
-		//インスタンスを生成
-		TaskEntity deleteEntity = new TaskEntity();
-				
-		//削除するデータのidをエンティティにセットする
-		deleteEntity.setTaskId(taskRequest.getTaskId());
-				
 		//DBから削除
-		taskService.delete(deleteEntity.getTaskId()); 
-				
-		//taskList再表示
-		List<TaskEntity> taskList = taskService.getTaskList();
-		model.addAttribute("title", "Task一覧");
-		model.addAttribute("taskList",taskList);
-		model.addAttribute("taskRequest", taskRequest);
+		taskService.delete(taskRequest.getTaskId());
 
 		return "redirect:/task/list";
 			
