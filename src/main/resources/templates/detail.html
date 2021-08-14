@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${title}">Insert title here</title>
+<link th:href="@{/css/list.css}" rel="stylesheet" type="text/css">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+</head>
+<body>
+	<header><h1 th:text="${myTasks}"></h1></header>
+			<form method="post" th:action="@{/task/update}" th:object="${oneTask}">	
+				<table>
+				　　　<tr><td>タスク名</td></tr>
+					<tr><td><input name="taskName" type="text" th:value="*{taskName}"></td></tr>
+					<tr><td>日付</td></tr>
+					<tr><td><input name="taskDate" type="date" th:value="${#dates.format(oneTask.taskDate,'yyyy-MM-dd')}"></td></tr>	
+					<tr><td>時間</td></tr>
+					<tr><td><input name="taskTime" type="time" th:value="*{taskTime}"></td></tr>	
+					<tr><td>場所</td></tr>
+					<tr><td><input name="taskPlace" type="text" th:value="*{taskPlace}" ></td></tr>
+				</table>	
+				<input type="submit" value="保存">
+				<input type="hidden" name="taskId" th:value="*{taskId}">	
+			</form>
+	<footer></footer>	
+
+</body>
+</html>
