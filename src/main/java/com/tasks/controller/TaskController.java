@@ -19,6 +19,7 @@ import com.tasks.service.TaskService;
 
 
 
+
 @Controller
 public class TaskController {
 
@@ -142,5 +143,21 @@ public class TaskController {
 		model.addAttribute("taskRequest", taskRequest);
 
 		return "redirect:/task/list";
+	}
+	
+	/* 
+	 * タスクを削除する
+	 * ①エンティティへ値をセットし更新する
+	 * ②list.htmlを再表示する
+	 * 
+	 */
+	@PostMapping("/task/delete")
+	public String taskDelete(TaskRequest taskRequest, Model model) {
+		
+		//DBから削除
+		taskService.delete(taskRequest.getTaskId());
+
+		return "redirect:/task/list";
+			
 	}
 }

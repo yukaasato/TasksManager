@@ -38,6 +38,11 @@
 						<input type="hidden" name="taskId" th:value="*{taskId}"><!--idをformに持たせておく、javaのほうで条件絞り込みに必要 -->
 						<input type="submit" value ="詳細"><!--valueとclassはAwsome -->
 					</form> 
+					<!-- 削除ボタン -->
+					<form method="post" th:action="@{/task/delete}">
+						<input type="hidden" name="taskId" th:value="*{taskId}">
+						<input type="submit" value="削除">
+					</form>
 				</td>
 			</tr><!-- 行終 -->
 

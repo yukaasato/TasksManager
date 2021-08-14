@@ -38,6 +38,14 @@ public class TaskService {
 		
 		
 		return taskRepository.findByTaskId(id);
-	}	
+	}
+	
+	//task�̍폜
+	public void delete(int deleteId) {
+	
+		taskRepository.deleteById(deleteId);
+	
+	}
+
 	
 }
