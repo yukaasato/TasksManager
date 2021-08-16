@@ -46,6 +46,12 @@ public class TaskService {
 		taskRepository.deleteById(deleteId);
 	
 	}
+	
+	//task‚ÌXV
+	public void complete(TaskEntity completeTask) {
+		
+		taskRepository.save(completeTask);
+	}
 
 	
 }

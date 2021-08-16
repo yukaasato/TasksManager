@@ -28,6 +28,7 @@
 		<th:block th:each="list : ${taskList}" th:object="${list}"><!-- ${taskList}がJavaから受け取る変数名、th:each="変数名,ステータス変数名 : 繰り返す要素 ーー-->
 			<!-- taskのデータ一つずつ -->
 			<tr>
+				<td><input type="checkbox" id="complete" name="completeFlag" th:checked="*{completeFlag}" ></td>
 				<td th:text="*{taskName}"></td>	
 				<td th:text="${#dates.format(list.taskDate,'yyyy-MM-dd')}"></td>
 				<td class="data"th:text="${#dates.format(list.taskTime,'hh:mm')}"></td><!-- ユーティリティメソッド、"${#dates.format(値,'hh:mm')}"> -->
@@ -42,6 +43,11 @@
 					<form method="post" th:action="@{/task/delete}">
 						<input type="hidden" name="taskId" th:value="*{taskId}">
 						<input type="submit" value="削除">
+					</form>
+					<!-- 完了 -->				
+					<form method="post" th:action="@{/task/complete}">
+						<input type="hidden" name="taskId" th:value="*{taskId}">
+						<input type="submit" value="完了">
 					</form>
 				</td>
 			</tr><!-- 行終 -->
