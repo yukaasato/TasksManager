@@ -160,4 +160,22 @@ public class TaskController {
 		return "redirect:/task/list";
 			
 	}
+	
+	/* 
+	 * タスクを完了する
+	 * ①エンティティを検索
+	 * ②否定演算子で真偽を反転
+	 * 
+	 */
+	@PostMapping("/task/complete")
+	public String taskComplete(TaskRequest taskRequest, Model model) {
+		
+		TaskEntity completeEntity = taskService.getTaskEntity(taskRequest.getTaskId());
+		completeEntity.setCompleteFlag(!completeEntity.getCompleteFlag());
+		taskService.complete(completeEntity);
+		
+		return "redirect:/task/list";
+		
+	}
+	
 }
