@@ -28,7 +28,7 @@
 		<th:block th:each="list : ${taskList}" th:object="${list}"><!-- ${taskList}がJavaから受け取る変数名、th:each="変数名,ステータス変数名 : 繰り返す要素 ーー-->
 			<!-- taskのデータ一つずつ -->
 			<tr>
-		        <td><input type="checkbox" id="complete" name="completeFlag" th:checked="*{completeFlag}" checked></td>
+		    <td><input type="checkbox" id="complete" name="completeFlag" th:checked="*{completeFlag}" checked></td>
 				<td th:text="*{taskName}"></td>	
 				<td th:text="${#dates.format(list.taskDate,'yyyy-MM-dd')}"></td>
 				<td class="data"th:text="${#dates.format(list.taskTime,'hh:mm')}"></td><!-- ユーティリティメソッド、"${#dates.format(値,'hh:mm')}"> -->
