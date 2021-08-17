@@ -171,7 +171,7 @@ public class TaskController {
 	public String taskComplete(TaskRequest taskRequest, Model model) {
 		
 		TaskEntity completeEntity = taskService.getTaskEntity(taskRequest.getTaskId());
-		completeEntity.setCompleteFlag(completeEntity.getCompleteFlag() ? false : true);
+		completeEntity.setCompleteFlag(!completeEntity.getCompleteFlag());
 		taskService.complete(completeEntity);
 		
 		return "redirect:/task/list";
