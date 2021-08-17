@@ -164,7 +164,7 @@ public class TaskController {
 	/* 
 	 * タスクを完了する
 	 * ①エンティティを検索
-	 * ②三項演算子で真偽を反転
+	 * ②否定演算子で真偽を反転
 	 * 
 	 */
 	@PostMapping("/task/complete")
