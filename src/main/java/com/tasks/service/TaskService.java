@@ -53,5 +53,10 @@ public class TaskService {
 		taskRepository.save(completeTask);
 	}
 
+	//task‚ÌŠ®—¹
+	public void complete(TaskEntity completeTask) {
+		
+		taskRepository.save(completeTask);
+	}
 	
 }
