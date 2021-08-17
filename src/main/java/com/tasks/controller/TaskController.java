@@ -87,13 +87,8 @@ public class TaskController {
 
 		//エンティティのインスタンスを生成する
 		//用途はデータベースから取得する1件のデータを格納する事
-		TaskEntity detailEntity = new TaskEntity ();
-
-		//taskRequestからdetailEntityへセットする
-		//ユーザが見たい詳細データを絞り込むため
-		detailEntity.setTaskId(taskRequest.getTaskId());
-
-
+		TaskEntity detailEntity = taskService.getTaskEntity(taskRequest.getTaskId());
+		
 		//タイトル
 		model.addAttribute("myTasks","My Tasks");
 
@@ -160,4 +155,22 @@ public class TaskController {
 		return "redirect:/task/list";
 			
 	}
+	
+	/* 
+	 * タスクを完了する
+	 * ①エンティティを検索
+	 * ②否定演算子で真偽を反転
+	 * 
+	 */
+	@PostMapping("/task/complete")
+	public String taskComplete(TaskRequest taskRequest, Model model) {
+		
+		TaskEntity completeEntity = taskService.getTaskEntity(taskRequest.getTaskId());
+		completeEntity.setCompleteFlag(!completeEntity.getCompleteFlag());
+		taskService.complete(completeEntity);
+		
+		return "redirect:/task/list";
+		
+	}
+	
 }
