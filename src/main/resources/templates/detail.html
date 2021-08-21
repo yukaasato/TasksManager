@@ -24,6 +24,9 @@
 				<input type="submit" value="保存">
 				<input type="hidden" name="taskId" th:value="*{taskId}">	
 			</form>
+			<form  method="get" th:action="@{/task/list}">
+				<input type="submit" value="戻る">
+			</form>
 	<footer></footer>	
 
 </body>
